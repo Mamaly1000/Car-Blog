@@ -1,13 +1,213 @@
-body {
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap");
+
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  font-family: "Oswald", sans-serif;
+  box-sizing: border-box;
+  transition: color 0.13s linear, background 0.13s linear;
+}
+
+body {
+  font-family: "Oswald", sans-serif;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+.navlinks {
+  font-size: 0.8rem;
+}
+@media screen and (min-width: 768px) {
+  .position-md-absolute {
+    position: absolute;
+  }
+  .w-md-50 {
+    min-width: 50% !important;
+  }
+}
+a,
+button {
+  height: 50px;
+}
+.btn,
+.a-btn {
+  position: relative;
+  overflow: hidden;
+}
+.btn::before,
+.a-btn::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  background: rgba(255 255 255/0.3);
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: opacity 0.13s linear;
+}
+.btn:hover::before,
+.a-btn:hover::before {
+  opacity: 1;
+}
+@keyframes Themeanimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+/* list group */
+.listgroup {
+  width: fit-content;
+  transition: height 0.13s linear;
+}
+.listgroup a {
+  font-size: 0.8rem;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  column-gap: 4px;
+  border-bottom: 0.01rem solid #423842;
+}
+.listgroup a:first-child {
+  border-radius: 5px 5px 0 0;
+}
+.listgroup a:last-child {
+  border-radius: 0 0 5px 5px;
+  border-width: 0;
+}
+.listgroup img {
+  margin-left: 6px;
+}
+/* carousel */
+.carousel {
+  height: 85vh !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  overflow: hidden;
+  position: relative;
+  z-index: 10;
+}
+.carousel a {
+  top: 45%;
+}
+.carousel-caption {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 !important;
+  padding: 0 !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+}
+.carousel img {
+  width: 100% !important;
+  box-shadow: 0 0 10px black;
+  border-radius: 5px;
+  transition: transform 3s linear;
+}
+.carousel img:hover {
+  transform: scale(1.1, 1.1);
+}
+.carousel-indicators {
+  width: 100%;
+  position: absolute !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  margin-bottom: 50px !important;
+}
+@media screen and (max-width: 1200px) {
+  .carousel {
+    height: 70vh !important;
+  }
+}
+@media screen and (max-width: 768px) {
+  .carousel {
+    height: 50vh !important;
+  }
+}
+@media screen and (max-width: 560px) {
+  .carousel {
+    height: 35vh !important;
+  }
+}
+/* headers underline */
+.underline {
+  position: relative;
+}
+.underline::before {
+  content: "";
+  width: 30%;
+  height: 6%;
+  border-radius: 20px;
+  background: rgb(44, 43, 43);
+  position: absolute;
+  bottom: -5%;
+  left: 0;
+}
+.underline::after {
+  content: "";
+  width: 10%;
+  height: 6%;
+  border-radius: 20px;
+  background: #fff;
+  position: absolute;
+  bottom: -5%;
+  left: 0;
+}
+/* accordion */
+.accordion-button {
+  background: transparent !important;
+  color: #fff !important;
+  box-shadow: 0 0 black !important;
+}
+.accordion-button-lightMode {
+  box-shadow: 0 0 black !important;
+  color: #423842;
+}
+.accordion-button::after {
+  color: #fff !important;
+  background: transparent !important;
+}
+/* journal links */
+.journal-links {
+  position: relative;
+  z-index: 1;
+  background: transparent;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.13s linear;
+}
+.journal-links:hover {
+  text-decoration: underline;
+}
+.journal-title {
+  position: relative;
+  z-index: 1;
+  padding-bottom: 5px;
+  cursor: pointer;
+}
+.journal-title::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 10%;
+  background: rgba(255 255 255/0.4);
+  transition: width 0.13s linear;
+}
+.journal-title:hover::before {
+  width: 60%;
 }

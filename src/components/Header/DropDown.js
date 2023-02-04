@@ -3,13 +3,16 @@ import { useStateContext } from "../../context/themeContext";
 
 const DropDown = ({ item }) => {
   const [click, setClick] = useState(false);
-  const { currentTheme } = useStateContext();
+  const { currentTheme, DarkMode } = useStateContext();
 
   return (
     <div className="col-12 col-md-auto  dropdown mt-3 mt-md-0 mx-0 px-0 px-md-2 mb-md-2 mb-lg-0">
       <button
         className="col-12 col-md-auto btn d-flex justify-content-between align-items-center"
-        style={{ color: currentTheme.textColor, background: currentTheme.btnColor }}
+        style={{
+          color: currentTheme.textColor,
+          background: currentTheme.btnColor,
+        }}
         type="button"
         id="dropdownMenuButton"
         data-bs-toggle="collapse"
@@ -37,7 +40,7 @@ const DropDown = ({ item }) => {
         </svg>
       </button>
       <div
-        className="listgroup collapse rounded-2 mt-1 py-2 position-md-absolute col-12 col-md-11 justify-content-center justify-content-md-start"
+        className="listgroup collapse rounded-2 mt-1 py-2 position-md-absolute col-12 col-md-11 justify-content-center justify-content-md-start "
         id={item.link}
         style={{ zIndex: 100 }}
       >
@@ -49,10 +52,10 @@ const DropDown = ({ item }) => {
             style={{
               zIndex: 200,
               background: currentTheme.btnColor,
-              color: "#f5f5f5",
+              color: currentTheme.textColor,
             }}
           >
-            <span className="me-1" style={{ width: "30px", height: "30px" }}>
+            <span className="me-3" style={{ width: "30px", height: "30px" }}>
               <img
                 src={item.icon}
                 alt=""

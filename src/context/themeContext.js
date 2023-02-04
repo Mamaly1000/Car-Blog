@@ -6,7 +6,7 @@ const theme = createContext();
 const ThemeContext = ({ children }) => {
   let [ThemeCode, setThemeCode] = useState(0);
   const [currentTheme, setCurrentTheme] = useState(pallate[ThemeCode]);
-  const [DarkMode, setDarkMode] = useState(false);
+  const [DarkMode, setDarkMode] = useState(true);
   const [PriceCurrency, setPriceCurrency] = useState("$");
   const [ActivateSearch, srtActivateSearch] = useState(false);
   const [disabled, setDisabled] = useState(true);

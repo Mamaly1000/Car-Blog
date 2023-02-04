@@ -1,16 +1,35 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useStateContext } from "../context/themeContext";
 import OffCanvas from "../components/Header/OffCanvas";
 import pallate from "../data/colorpalate";
 
 const NavBar = () => {
   const { currentTheme, DarkMode } = useStateContext();
+  const [scrolled, setScroll] = useState(false);
+
+  useEffect(() => {
+    window.addEventListener("scroll", (event) => {
+      window.scrollY > 100 ? setScroll(true) : setScroll(false);
+    });
+  }, []);
+
   return (
-    <nav className="navbar navbar-expand-md d-flex justify-content-between align-items-center pt-4">
+  <div className="position-relative mb-5">
+    <nav
+      className={`navbar navbar-expand-md bg-${
+        DarkMode ? "dark" : "light"
+      } d-flex justify-content-between align-items-center py-${
+        scrolled ? 2 : 3
+      } mb-2 top-0 w-100`}
+      style={{ zIndex: 200, position: "fixed",borderRadius:"0 0 5px 5px" }}
+    >
       <div className="container-fluid d-flex justify-content-between align-items-center">
         <button
           className="btn d-md-none d-flex justify-content-center align-items-center px-3"
-          style={{ background: currentTheme.btnColor, color: currentTheme.textColor }}
+          style={{
+            background: currentTheme.btnColor,
+            color: currentTheme.textColor,
+          }}
           type="button"
           data-bs-toggle="offcanvas"
           data-bs-target="#offcanvasExample"
@@ -33,19 +52,20 @@ const NavBar = () => {
 
         <OffCanvas />
 
-        <h3 className=" fs-4 ">
-          <span className="h1" style={{ color: currentTheme.btnColor }}>
-            Star
-          </span>
-          <span
-            className="h1 px-0"
-            style={{ color: DarkMode && pallate[4].cardBg }}
-          >
+        <h3
+          style={{
+            fontSize: !scrolled ? "3rem" : "2rem",
+            transition: "font-size .13s linear",
+          }}
+        >
+          <span style={{ color: currentTheme.btnColor }}>Star</span>
+          <span className={`px-0 text-${DarkMode ? "light" : "dark"}`}>
             Car
           </span>
         </h3>
       </div>
     </nav>
+  </div>
   );
 };
 

@@ -1,4 +1,5 @@
 import React from "react";
+import { useStateContext } from "../../context/themeContext";
 
 const descwraper = (text) => {
   const desc = text.split(".").slice(0, 1);
@@ -6,9 +7,12 @@ const descwraper = (text) => {
 };
 
 const JournalPosts = ({ data }) => {
+  const { DarkMode } = useStateContext();
   return (
     <div
-      className="bg-dark col-12 h-25 overflow-hidden d-flex mb-1 p-2 rounded-2"
+      className={`bg-${
+        DarkMode ? "dark" : "light"
+      } col-12 h-25 overflow-hidden d-flex mb-1 p-2 rounded-2`}
       data-aos="fade-left"
     >
       <div className="col-4">

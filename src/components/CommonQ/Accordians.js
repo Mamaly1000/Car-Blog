@@ -4,17 +4,24 @@ import { useStateContext } from "../../context/themeContext";
 import Chartt from "./Chart";
 
 const Accordions = ({ data, index }) => {
-  const { currentTheme } = useStateContext();
+  const { currentTheme, DarkMode } = useStateContext();
   const [clicked, setClicked] = useState(false);
   return (
-    <Accordion.Item eventKey={index} className="row bg-dark text-light mb-1">
+    <Accordion.Item
+      eventKey={index}
+      className={`row bg-${DarkMode ? "dark" : "light"} text-${
+        DarkMode ? "light" : "dark"
+      } mb-1`}
+    >
       <Accordion.Header
-        className="col-12 bg-dark underline d-flex justify-content-between align-items-center"
+        className={`col-12  underline d-flex justify-content-between align-items-center`}
         onClick={() => {
           setClicked((prev) => !prev);
         }}
       >
-        <h6 className="col-11">{data.Question}</h6>
+        <h6 className={`col-11 text-${DarkMode ? "light" : "dark"}`}>
+          {data.Question}
+        </h6>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="16"

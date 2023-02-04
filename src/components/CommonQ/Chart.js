@@ -3,10 +3,10 @@ import { Line } from "react-chartjs-2";
 import { useStateContext } from "../../context/themeContext";
 
 const Chartt = ({ topic, chartdata }) => {
-  const { currentTheme } = useStateContext();
+  const { currentTheme, DarkMode } = useStateContext();
 
   return (
-    <div className="bg-dark text-light">
+    <div className={`bg-${DarkMode ? "dark" : "light"} text-light`}>
       <Line
         data={{
           labels: chartdata.map((chartdata) => chartdata.month),

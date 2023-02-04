@@ -7,7 +7,7 @@ const Layout = ({ children }) => {
   const { currentTheme } = useStateContext();
   return (
     <div
-      className="container-fluid bg-light p-0"
+      className="container-fluid bg-light p-0 m-0 overflow-hidden"
       style={{
         background: ` linear-gradient(75deg, ${currentTheme.textColor} 0%, ${currentTheme.descColor} 100%)`,
       }}

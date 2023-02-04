@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useStateContext } from "../../context/themeContext";
@@ -19,15 +18,19 @@ import FilterButton from "./FilterButton";
 const CarSearchsection = () => {
   const [search, setsearch] = useState("");
   const dispatch = useDispatch();
-  const { currentTheme, disabled, setDisabled, setPriceCurrency } =
+  const { currentTheme, disabled, setDisabled, setPriceCurrency, DarkMode } =
     useStateContext();
 
   useEffect(() => {
     dispatch(SearchByName(search));
-  }, [search,dispatch]);
+  }, [search, dispatch]);
 
   return (
-    <div className="row bg-dark rounded-2 py-2 px-3 m-0 d-flex justify-content-between align-items-center">
+    <div
+      className={`row bg-${
+        DarkMode ? "dark" : "light"
+      } rounded-2 py-2 px-3 m-0 d-flex justify-content-between align-items-center`}
+    >
       <div className="col-12 col-md-3 p-0 m-0 d-flex justify-content-evenly align-items-center mb-2 mb-md-0">
         <FilterButton
           padding={3}

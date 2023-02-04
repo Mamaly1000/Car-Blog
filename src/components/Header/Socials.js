@@ -14,7 +14,7 @@ const Socials = () => {
           className="col-12 btn d-flex justify-content-start align-items-center my-2"
           style={{
             background: currentTheme.btnColor,
-            color: "#fff",
+            color: currentTheme.textColor,
             minWidth: "100%",
           }}
         >

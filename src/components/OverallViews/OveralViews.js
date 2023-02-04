@@ -3,10 +3,14 @@ import { useStateContext } from "../../context/themeContext";
 import Service from "./Service";
 
 const OveralViews = () => {
-  const { currentTheme } = useStateContext();
+  const { currentTheme, DarkMode } = useStateContext();
 
   return (
-    <div className="row row-cols-1 rounded-3 bg-secondary text-white mx-1 mt-2 p-3 align-items-center justify-content-evenly ">
+    <div
+      className={`row row-cols-1 rounded-3 bg-transparent text-${
+        DarkMode ? "light" : "dark"
+      } mx-1 mt-2 p-3 align-items-center justify-content-evenly `}
+    >
       <h3
         className="col-12 underline pb-2 mb-3"
         data-aos="fade-right"

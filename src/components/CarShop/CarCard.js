@@ -11,11 +11,13 @@ const numwithcomma = (num) => {
 };
 
 const CarCard = ({ car }) => {
-  const { currentTheme } = useStateContext();
+  const { currentTheme, DarkMode } = useStateContext();
   const currency = useSelector((state) => state.currency);
   return (
     <div
-      className="card col-12 col-sm-6 col-md-4 col-lg-3  rounded-0 bg-dark p-2"
+      className={`card col-12 col-sm-6 col-md-4 col-lg-3  rounded-0 bg-${
+        DarkMode ? "dark" : "light"
+      } p-2`}
       style={{ minHeight: "350px" }}
       data-aos="fade-up"
       data-aos-anchor-placement="top-center"
@@ -28,17 +30,33 @@ const CarCard = ({ car }) => {
         ))}
       </Carousel>
       <div className="row row-cols-2 justify-content-between align-items-center mt-2 ">
-        <span className="col-auto col-md-8 fs-6 display-6 ">{car.model}</span>
-        <span className="col-auto col-md-4 fs-6 display-6 d-flex justify-content-start justify-content-md-end">
+        <span
+          className={`col-auto col-md-8 fs-6 display-6 text-${
+            DarkMode ? "light" : "dark"
+          }`}
+        >
+          {car.model}
+        </span>
+        <span
+          className={`col-auto col-md-4 fs-6 display-6 d-flex justify-content-start justify-content-md-end text-${
+            DarkMode ? "light" : "dark"
+          }`}
+        >
           {!isNaN(currency) && "Price On Request"}
           {currency === "$" &&
             `${numwithcomma(car.price[0].dolor)} ${currency}`}
           {currency === "£" && `${numwithcomma(car.price[0].pond)} ${currency}`}
         </span>
       </div>
-      <hr className="col-12 divider w-100 my-1 mx-0 px-0 p-0" />
+      <hr className="col-12 divider w-100 my-1 mx-0 px-0 p-0 " />
       <div className="row row-cols-2 align-items-center justify-content-between mt-1 ">
-        <span className="col-auto fs-6">{car.released_date}</span>
+        <span
+          className={`col-auto fs-6 display-6 text-${
+            DarkMode ? "light" : "dark"
+          }`}
+        >
+          {car.released_date}
+        </span>
         <div className="col-auto d-flex justify-content-start justify-content-md-end">
           {car.colors.map((color, index) => (
             <button

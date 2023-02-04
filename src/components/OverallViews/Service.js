@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useStateContext } from "../../context/themeContext";
 
 const Service = ({ start, measure, end, servicetext }) => {
-  const { currentTheme } = useStateContext();
+  const { currentTheme, DarkMode } = useStateContext();
   let [num, setNum] = useState({
     start,
     end,
@@ -20,7 +20,9 @@ const Service = ({ start, measure, end, servicetext }) => {
 
   return (
     <div
-      className="col-12 col-sm-6 col-md-auto d-flex justify-content-center align-items-center rounded-circle bg-dark d-flex justify-content-center align-items-center flex-column mb-2 mb-md-0"
+      className={`col-12 col-sm-6 col-md-auto d-flex justify-content-center align-items-center rounded-circle bg-${
+        DarkMode ? "dark" : "light"
+      } d-flex justify-content-center align-items-center flex-column mb-2 mb-md-0`}
       style={{ width: 200, height: 200 }}
       data-aos="zoom-in"
     >

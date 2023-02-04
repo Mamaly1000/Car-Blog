@@ -7,14 +7,14 @@ import CarCard from "./CarCard";
 import CarSearchsection from "./CarSearchsection";
 
 const CarStore = () => {
-  const { currentTheme, disabled } = useStateContext();
+  const { currentTheme, disabled, DarkMode } = useStateContext();
   const { cars } = useSelector((state) => state);
   return (
     <div
-      className="row row-cols-1 rounded-3 bg-secondary text-white mx-1 mt-2 p-3"
+      className={`row row-cols-1 rounded-3 
+      bg-${DarkMode && "transparent"}  mx-1 mt-2 p-3`}
       style={{
         color: currentTheme.textColor,
-        background: currentTheme.bgColor,
       }}
     >
       <CarSearchsection />

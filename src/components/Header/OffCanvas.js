@@ -10,7 +10,7 @@ import NavTitle from "./NavTitle";
 
 const OffCanvas = () => {
   const [mdscrenn, setmdscreen] = useState(window.innerWidth);
-  const { currentTheme } = useStateContext();
+  const { currentTheme, DarkMode } = useStateContext();
 
   useEffect(() => {
     const handleresize = () => setmdscreen(window.innerWidth);
@@ -34,7 +34,7 @@ const OffCanvas = () => {
       }}
     >
       {/* header */}
-      <div className="offcanvas-header">
+      <div className={`offcanvas-header text-${DarkMode ? "light" : "dark"}`}>
         <h5 className="offcanvas-title" id="offcanvasExampleLabel">
           <span className="h1" style={{ color: currentTheme.btnColor }}>
             Star
@@ -48,7 +48,8 @@ const OffCanvas = () => {
           aria-label="Close"
           style={{
             background: currentTheme.btnColor,
-            boxShadow: "0 0 0 black",
+            color: currentTheme.textColor,
+            boxShadow: `0 0 10px ${currentTheme.btnColor}`,
           }}
         >
           <svg

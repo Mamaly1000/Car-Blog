@@ -1,6 +1,8 @@
 import React from "react";
+import { useStateContext } from "../../context/themeContext";
 
 const BrandTitle = ({ cardata }) => {
+  const { DarkMode } = useStateContext();
   return (
     <h3
       className="row row-cols-2 align-items-center underline pb-2 mb-3"
@@ -16,7 +18,9 @@ const BrandTitle = ({ cardata }) => {
           style={{ objectFit: "cover", width: "50px", height: "50px" }}
         />
       </div>
-      <span className="col-11 m-0">{cardata.brand}</span>
+      <span className={`col-11 m-0 text-${DarkMode ? "light" : "dark"}`}>
+        {cardata.brand}
+      </span>
     </h3>
   );
 };

@@ -4,13 +4,13 @@ import Footer from "./Footer";
 import NavBar from "./NavBar";
 
 const Layout = ({ children }) => {
-  const { currentTheme } = useStateContext();
+  const { currentTheme, DarkMode } = useStateContext();
   return (
     <div
-      className="container-fluid bg-light p-0 m-0 overflow-hidden"
-      style={{
-        background: ` linear-gradient(75deg, ${currentTheme.textColor} 0%, ${currentTheme.descColor} 100%)`,
-      }}
+      className={` ${
+        DarkMode ? "bg-darkmode":"bg-lightmode"
+      } container-fluid bg-light p-0 m-0 overflow-hidden `}
+ 
     >
       <NavBar />
       {children}

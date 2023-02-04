@@ -11,6 +11,7 @@ const Footer = () => {
       className={`w-100 bg-${DarkMode ? "dark" : "light"}
       text-${DarkMode ? "light" : "dark"}
       mt-2 p-0 align-items-center pt-5 px-5`}
+      style={{borderRadius:"5px 5px 0 0 "}}
     >
       <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
         {footerlinks.map((data, index) => (

@@ -43,7 +43,7 @@ const cars = [
 
 const ImgCarousel = () => {
   return (
-    <Div className="mx-1 rounded-3 overflow-hidden">
+    <Div className="mx-3 rounded-3 overflow-hidden">
       <Carousel fade touch={true}>
         {cars.map((car, index) => (
           <Carousel.Item key={index}>

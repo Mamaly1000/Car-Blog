@@ -11,7 +11,7 @@ const ThemeContext = ({ children }) => {
   const [ActivateSearch, srtActivateSearch] = useState(false);
   const [disabled, setDisabled] = useState(true);
   useEffect(() => {
-    ThemeCode >= 4 && setThemeCode(0);
+    ThemeCode >= 5 && setThemeCode(0);
     setCurrentTheme(pallate[ThemeCode]);
   }, [ThemeCode, currentTheme]);
   return (

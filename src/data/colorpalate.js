@@ -2,31 +2,26 @@ const pallate = [
   {
     textColor: "#1b1e23",
     btnColor: "#d8c277",
-    bgColor: "#cdb88d",
-    descColor: "#f7f7f6",
   },
   {
     textColor: "#d2feff",
     btnColor: "#fd6927",
-    bgColor: "#0f0b1e",
-    descColor: "#a9bdc3",
   },
   {
-    textColor: "#feebac",
-    btnColor: "#444756",
-    bgColor: "#242230",
-    descColor: "#fdd71a",
+    textColor: "rgb(30 55 64)",
+    btnColor: "#CFDEF3",
   },
   {
     textColor: "#ffffff",
-    btnColor: "#55619f",
-    bgColor: "#8931ac",
-    descColor: "#f8b018",
+    btnColor: "#6441A5",
   },
   {
-    bgColor: "#404258",
-    icons: "#50577A",
-    cardBg: "#6B728E",
+    textColor: "#ffffff",
+    btnColor: "#0b8793",
+  },
+  {
+    textColor: "#ffffff",
+    btnColor: "#0b8793",
   },
 ];
 export default pallate;
